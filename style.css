@@ -1,0 +1,197 @@
+:root {
+    --purple: #2f40d3;
+    --light-purple: #242947;
+    --lighter-purple: #797e9a;
+    --green: #66a663;
+    --white: #fff;
+    --orange: #dbac36;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background-color: var(--purple);
+    padding: 20px;
+}
+header {
+    display: flex;
+    background-color: var(--light-purple);
+    border-radius: 20px;
+    padding: 20px;
+    align-items: center;
+    gap: 5px;
+}
+header img{
+    height: 65px;
+}
+h1 {
+    text-transform: uppercase;
+}
+.exit{
+    color: var(--lighter-purple);
+    text-decoration: underline;
+    cursor: pointer;
+}
+.exit:hover{
+    color: white;
+}
+main {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap-reverse;
+}
+.gridBlocks{
+    background-color: var(--light-purple);
+    padding: 20px;
+    border-radius: 20px;
+    flex-grow: 1000;
+}
+.area {
+    display: grid;
+    grid-template-columns: repeat(10, 20px);
+    gap: 5px;
+    justify-content: center;
+    margin-top: 15px;
+}
+.cell {
+    height: 20px;
+    width: 20px;
+    background-color: var(--purple);
+    border-radius: 3px;
+
+    text-align: center;
+    font-weight: bold;
+    line-height: 28px;
+    font-size: 22px;
+}
+.pointsBlocks {
+    background-color: var(--light-purple);
+    padding: 20px;
+    border-radius: 20px;
+    flex-grow: 1;
+    width: 250px;
+}
+h2 {
+    text-align: center;
+    font-size: 24px;
+}
+.inputsblock {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+label {
+    background-color: var(--purple);
+    padding: 5px;
+    border-radius: 30px;
+    min-width: 100px;
+    text-align: center;
+    flex-grow: 1;
+}
+label input {
+    display: none;
+}
+label:has(input:checked) {
+    background-color: var(--orange);
+}
+.btn {
+    background-color: var(--green);
+    height: 60px;
+    width: 250px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border-radius: 30px;
+    color: var(--white);
+    cursor: pointer;
+    text-transform: uppercase;
+}
+.cell.active{
+    background-color: var(--lighter-purple);
+    cursor: pointer;
+}
+.cell.flag {
+    background-image: url(./img/flag-in-hole_26f3.png);
+    background-color: var(--green);
+    background-size: contain;
+}
+.cell.bomb {
+    background-image: url(./img/bomb_1f4a3.png);
+    background-color: var(--orange);
+    background-size: contain;
+}
+section {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.popUp {
+    background-color: var(--purple);
+    border: 5px solid var(--white);
+    border-radius: 20px;
+    width: 300px;
+    text-align: center;
+    padding: 20px 20px;
+}
+.popUp h2 {
+    text-transform: uppercase;
+}
+.popUp input {
+    max-width: 260px ;
+    font-size: 26px;
+    outline: none;
+    border-radius: 15px;
+    border: 0;
+    padding: 0 15px;
+}
+/* Общие настройки для мобильных устройств */
+@media (max-width: 768px) {
+    /* Контейнер области игры */
+    .area {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr); /* 8 колонок для удобного отображения на мобильных */
+        grid-gap: 5px;
+    }
+
+    /* Ячейки игры */
+    .cell {
+        width: 40px;  /* Размер ячеек для комфортного нажатия на телефоне */
+        height: 40px;
+        font-size: 16px; /* Более крупный шрифт */
+    }
+
+    /* Панель пользователя и кнопки */
+    header {
+        font-size: 14px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    #gameButton {
+        width: 100%;
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    /* Форма авторизации */
+    section {
+        width: 90%;
+        margin: auto;
+        padding: 10px;
+        font-size: 16px;
+    }
+}
